@@ -51,15 +51,12 @@ namespace InventoryRotator
         [Subscribe]
         public void UpdateCallback(PreUpdateEvent @event)
         {
-            //Console.WriteLine("Update");
             var player = @event.LocalPlayer;
             KeyboardState keyboard = Keyboard.GetState();
             GamePadState gamepad = GamePad.GetState(Microsoft.Xna.Framework.PlayerIndex.One);
             Keys[] pressedKeys = keyboard.GetPressedKeys();
-            //Buttons[] pressedButtons = gamepad.Buttons.
             if (!player.Name.Equals(""))
             {
-                //Console.WriteLine(player.Name+"Can move");
                 if ((keyboard.IsKeyDown(keyboardKey) && lastState.IsKeyUp(keyboardKey))||
                     (gamepad.Buttons.LeftShoulder == ButtonState.Pressed && lastGPState.Buttons.LeftShoulder == ButtonState.Released)||
                     (gamepad.Buttons.RightShoulder == ButtonState.Pressed && lastGPState.Buttons.RightShoulder == ButtonState.Released))
@@ -73,12 +70,10 @@ namespace InventoryRotator
                         if (player.Items[i] != null)
                         {
                             newInventory.Add(player.Items[i]);
-                            //Console.WriteLine("Added Item");
                         }
                         else
                         {
                             newInventory.Add(null);
-                            //Console.WriteLine("Added null");
                         }
                     }
                     for (int i = 0; i < 12; i++)
@@ -86,12 +81,10 @@ namespace InventoryRotator
                         if (player.Items[i] != null)
                         {
                             newInventory.Add(player.Items[i]);
-                            //Console.WriteLine("Added Item");
                         }
                         else
                         {
                             newInventory.Add(null);
-                            //Console.WriteLine("Added null");
                         }
                     }
                     for (int i = 0; i < invSize; i++)
@@ -99,12 +92,10 @@ namespace InventoryRotator
                         player.SetItem(i, null);
                         if (newInventory[i] != null)
                         {
-                            //Console.WriteLine(newInventory[i].Name + newInventory[i].Stack + " " + i);
                             player.SetItem(i, newInventory[i]);
                         }
                         else
                         {
-                            //Console.WriteLine(i + " is null");
 
                         }
                     }
