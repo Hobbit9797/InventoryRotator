@@ -94,10 +94,6 @@ namespace InventoryRotator
                         {
                             player.SetItem(i, newInventory[i]);
                         }
-                        else
-                        {
-
-                        }
                     }
                 }
             }
